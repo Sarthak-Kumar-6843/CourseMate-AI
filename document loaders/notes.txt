@@ -1,0 +1,318 @@
+# Artificial Intelligence, Machine Learning, Deep Learning and Retrieval-Augmented Generation
+
+## 1. Introduction to Artificial Intelligence
+
+Artificial Intelligence (AI) is a branch of computer science that focuses on developing machines and software capable of performing tasks that normally require human intelligence. These tasks include understanding natural language, recognizing images, solving problems, making decisions, and learning from experience.
+
+AI has become an important part of modern technology. It is used in healthcare, education, banking, transportation, entertainment, cybersecurity, and many other industries.
+
+Some common examples of AI applications include virtual assistants, recommendation systems, facial recognition, autonomous vehicles, fraud detection systems, and conversational chatbots.
+
+The primary objective of artificial intelligence is to develop systems that can process information, identify patterns, make predictions, and perform intelligent actions.
+
+## 2. Machine Learning
+
+Machine Learning (ML) is a subset of Artificial Intelligence that allows computers to learn patterns from data without being explicitly programmed for every individual task.
+
+Traditional programming requires developers to write specific rules for solving problems. Machine learning takes a different approach. Developers provide data to an algorithm, and the algorithm learns patterns that can be used to make predictions on new data.
+
+Machine learning is generally divided into three major categories.
+
+### 2.1 Supervised Learning
+
+Supervised learning uses labelled datasets to train machine learning models. A labelled dataset contains input features and their corresponding correct outputs.
+
+For example, consider a dataset containing information about houses. The dataset might include the number of bedrooms, location, area, and price.
+
+A supervised learning algorithm can learn the relationship between these features and house prices. After training, the model can predict the price of a new house.
+
+Common supervised learning algorithms include:
+
+- Linear Regression
+- Logistic Regression
+- Decision Trees
+- Random Forest
+- Support Vector Machines
+- K-Nearest Neighbors
+- Gradient Boosting
+- XGBoost
+
+Supervised learning is commonly used for classification and regression problems.
+
+### 2.2 Unsupervised Learning
+
+Unsupervised learning works with datasets that do not contain labelled outputs.
+
+The objective is to discover hidden patterns, relationships, and structures within the data.
+
+For example, an online shopping company might use clustering algorithms to group customers according to their purchasing behaviour.
+
+Popular unsupervised learning algorithms include:
+
+- K-Means Clustering
+- DBSCAN
+- Hierarchical Clustering
+- Principal Component Analysis
+
+Unsupervised learning is useful for customer segmentation, anomaly detection, dimensionality reduction, and exploratory data analysis.
+
+### 2.3 Reinforcement Learning
+
+Reinforcement learning is a machine learning technique in which an agent learns by interacting with an environment.
+
+The agent performs actions and receives rewards or penalties based on its behaviour. Over time, it learns which actions produce better results.
+
+For example, an AI agent playing a video game might receive positive rewards for defeating opponents and negative rewards for losing health.
+
+The objective is to maximize the total reward over time.
+
+Reinforcement learning is used in robotics, game-playing systems, autonomous navigation, and resource optimization.
+
+## 3. Deep Learning
+
+Deep Learning is a specialized subset of machine learning that uses artificial neural networks containing multiple layers.
+
+These networks are inspired by the structure of the human brain. They consist of interconnected computational units called neurons.
+
+Each neuron receives input, performs mathematical operations, and passes its output to other neurons.
+
+Deep learning models can automatically learn complex patterns from large amounts of data.
+
+Some important deep learning architectures include:
+
+### 3.1 Artificial Neural Networks
+
+Artificial Neural Networks (ANNs) consist of an input layer, one or more hidden layers, and an output layer.
+
+They are commonly used for classification, regression, and pattern recognition.
+
+### 3.2 Convolutional Neural Networks
+
+Convolutional Neural Networks (CNNs) are primarily used for image-related tasks.
+
+They can identify features such as edges, shapes, textures, and objects within images.
+
+CNNs are widely used in facial recognition, medical image analysis, object detection, and autonomous vehicles.
+
+### 3.3 Recurrent Neural Networks
+
+Recurrent Neural Networks (RNNs) are designed to process sequential data.
+
+Unlike traditional neural networks, RNNs maintain information from previous steps. This makes them useful for understanding sequences such as sentences, time-series data, and speech.
+
+However, traditional RNNs can struggle with long-term dependencies.
+
+LSTM and GRU architectures were developed to address some of these limitations.
+
+### 3.4 Transformers
+
+Transformers are deep learning architectures that have significantly changed natural language processing.
+
+They use an attention mechanism to identify relationships between different parts of an input sequence.
+
+Transformers can process sequences efficiently and capture long-range dependencies.
+
+They are the foundation of many modern large language models.
+
+## 4. Large Language Models
+
+Large Language Models (LLMs) are artificial intelligence models trained on large amounts of text data.
+
+They are designed to understand and generate human-like language.
+
+LLMs can perform many tasks, including:
+
+- Answering questions.
+- Summarizing documents.
+- Generating code.
+- Translating languages.
+- Extracting information.
+- Writing articles.
+- Performing reasoning tasks.
+
+Examples of popular language models include GPT, Claude, Gemini, and Llama.
+
+Most modern LLMs are based on transformer architectures.
+
+An LLM receives input in the form of tokens and generates output by predicting subsequent tokens based on the context.
+
+However, LLMs have certain limitations.
+
+Their knowledge may be outdated because their training data has a cutoff date. They can also generate incorrect information, a problem commonly known as hallucination.
+
+Another limitation is that an LLM does not automatically have access to private company documents, internal databases, or newly uploaded files.
+
+Retrieval-Augmented Generation helps address these limitations.
+
+## 5. Retrieval-Augmented Generation
+
+Retrieval-Augmented Generation (RAG) is an architecture that combines information retrieval with large language models.
+
+Instead of relying entirely on information learned during training, a RAG system retrieves relevant information from an external knowledge source before generating an answer.
+
+This allows an LLM to answer questions using specific documents, databases, and other information sources.
+
+For example, imagine a company has thousands of internal PDF documents.
+
+An employee might ask:
+
+"What is the company's annual leave policy?"
+
+A normal LLM might not know the company's internal policy.
+
+A RAG application can search through the company's documents, retrieve the relevant information, and provide it to the LLM.
+
+The LLM then generates an answer based on the retrieved information.
+
+A typical RAG pipeline contains several components.
+
+### 5.1 Document Loaders
+
+Document loaders are responsible for reading information from different sources.
+
+They convert external files into a standardized document format that can be processed by LangChain.
+
+Common document sources include:
+
+- PDF files.
+- TXT files.
+- Word documents.
+- CSV files.
+- HTML pages.
+- Websites.
+- Databases.
+
+In LangChain, document loaders generally produce Document objects.
+
+A Document object contains two important components:
+
+1. Page content: The actual text extracted from the source.
+2. Metadata: Additional information about the document, such as its source, page number, or filename.
+
+### 5.2 Text Splitting
+
+Large documents are often divided into smaller pieces called chunks.
+
+This process is known as text splitting or chunking.
+
+For example, a 100-page PDF might contain hundreds of thousands of characters.
+
+Sending the entire document to an LLM may be inefficient because language models have context-window limitations.
+
+Chunking divides the document into smaller sections that can be processed independently.
+
+Two important parameters are:
+
+- Chunk size: The maximum number of characters or tokens in a chunk.
+- Chunk overlap: The amount of text shared between consecutive chunks.
+
+Chunk overlap helps preserve contextual information between adjacent chunks.
+
+### 5.3 Embeddings
+
+Embeddings are numerical representations of text.
+
+An embedding model converts text into a vector containing numerical values.
+
+Texts with similar meanings generally have vectors that are close to each other in the embedding space.
+
+For example, consider these two sentences:
+
+Sentence A: "I enjoy playing football."
+
+Sentence B: "I like watching and playing soccer."
+
+Although the sentences use different words, they have similar meanings.
+
+An embedding model can generate vectors that represent their semantic similarity.
+
+Embeddings are essential for semantic search in RAG applications.
+
+### 5.4 Vector Databases
+
+A vector database stores numerical embeddings and allows applications to search for similar vectors efficiently.
+
+When a user asks a question, the application converts the question into an embedding.
+
+The vector database compares that embedding with stored document embeddings and retrieves the most relevant results.
+
+Popular vector databases and vector search solutions include:
+
+- ChromaDB.
+- FAISS.
+- Pinecone.
+- Weaviate.
+- Milvus.
+
+Vector databases are particularly useful when working with large document collections.
+
+### 5.5 Retrievers
+
+A retriever is responsible for finding relevant documents based on a user's query.
+
+It searches the vector database or another information source and returns documents that are likely to contain the required information.
+
+For example, if a user asks:
+
+"What are the advantages of deep learning?"
+
+The retriever searches the available documents and returns sections discussing deep learning advantages.
+
+The retrieved documents are then passed to the language model.
+
+### 5.6 Prompt Templates
+
+Prompt templates help structure instructions and information before sending them to an LLM.
+
+A RAG prompt generally contains:
+
+- System instructions.
+- Retrieved document context.
+- User question.
+
+The prompt instructs the LLM to answer using the provided context.
+
+This helps make responses more relevant to the retrieved information.
+
+### 5.7 Language Models
+
+The language model receives the user's question along with the retrieved context.
+
+It analyzes the information and generates a natural-language response.
+
+Different LLM providers can be integrated into a RAG application, including OpenAI, Groq, Anthropic, and Google.
+
+The choice of model depends on factors such as response quality, speed, pricing, context length, and availability.
+
+## 6. Complete RAG Workflow
+
+A typical RAG application follows two major stages.
+
+### Stage One: Indexing
+
+Indexing prepares documents for retrieval.
+
+The process generally follows these steps:
+
+1. Collect documents from different sources.
+2. Load documents using document loaders.
+3. Extract text and metadata.
+4. Divide documents into smaller chunks.
+5. Generate embeddings for each chunk.
+6. Store the embeddings and associated text in a vector database.
+
+Once indexing is complete, the documents are ready for retrieval.
+
+### Stage Two: Retrieval and Generation
+
+This stage occurs when a user asks a question.
+
+The workflow generally follows these steps:
+
+1. The user submits a question.
+2. The question is converted into an embedding.
+3. The retriever searches the vector database.
+4. Relevant document chunks are retrieved.
+5. The retrieved information is inserted into a prompt.
+6. The prompt is sent to an LLM.
+7. The LLM generates
