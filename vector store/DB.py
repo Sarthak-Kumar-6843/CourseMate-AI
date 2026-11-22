@@ -7,7 +7,7 @@ load_dotenv()
 
 from langchain_core.documents import Document
 
-from langchain_core.documents import Document
+
 
 docs = [
     Document(
@@ -32,3 +32,16 @@ vectorstore = Chroma.from_documents(
     persist_directory= "chroma-db"
 )
 
+result = vectorstore.similarity_search("What is used for data analysis?",k=2)
+
+for r in result:
+    print(r.page_content)
+    print(r.metadata)
+    
+    
+retriver = vectorstore.as_retriever()
+
+docs = retriver.invoke("Explain Deep Learning")
+
+for d in docs:
+    print(d.page_content)
