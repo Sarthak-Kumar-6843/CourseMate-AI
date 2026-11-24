@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: documind
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CHROMA_DB_PATH
+        value: /var/data/chroma_db
+      - key: DOCUMIND_DB_PATH
+        value: /var/data/documind.db
+      - key: FLASK_DEBUG
+        value: "False"
+    disk:
+      name: documind-data
+      mountPath: /var/data
+      sizeGB: 10
